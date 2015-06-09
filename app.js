@@ -27,6 +27,8 @@ app.use('/users', users);
 app.use('/api/:key/:value', function(req, res) {
   var response = {};
   response[req.params.key] = req.params.value;
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.contentType('application/json');
   res.send(JSON.stringify(response));
 });
